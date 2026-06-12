@@ -1,0 +1,5 @@
+node_modules/
+.vercel/
+*.env
+.florin-godaddy.env
+.DS_Store

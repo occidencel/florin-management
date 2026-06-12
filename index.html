@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Florin Management</title>
+  <meta name="description" content="Florin Management — a privately held company building and operating a portfolio of strategic brands." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Florin Management" />
+  <meta property="og:description" content="A privately held company building and operating a portfolio of strategic brands." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://florinmanagement.com" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #1A1A1A;
+      --ink-muted: #57534E;
+      --ink-soft: #8A847B;
+      --canvas: #F7F5F0;     /* neutral warm paper — deliberately NOT Summit's palette */
+      --rule: #E2DDD3;
+      --rule-strong: #CFC8BA;
+      --display: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    body {
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Masthead ---- */
+    header {
+      padding-top: 18vh;
+      padding-bottom: 64px;
+    }
+
+    .monogram {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 24px;
+      color: var(--ink);
+      margin-bottom: 30px;
+      line-height: 1;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(40px, 8vw, 64px);
+      letter-spacing: 0.5px;
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .lede {
+      font-size: 18px;
+      color: var(--ink-muted);
+      max-width: 52ch;
+      line-height: 1.6;
+    }
+
+    /* ---- Brands ---- */
+    .brands {
+      border-top: 1px solid var(--rule);
+      padding-top: 40px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 28px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left 160ms ease;
+    }
+    a.brand-row:hover { padding-left: 8px; }
+
+    .brand-name {
+      font-family: var(--display);
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .brand-desc {
+      font-size: 14px;
+      color: var(--ink-muted);
+      text-align: right;
+      max-width: 38ch;
+    }
+    .brand-row .arrow { color: var(--ink-soft); font-size: 14px; }
+    .placeholder .brand-name { color: var(--ink-soft); }
+    .placeholder .brand-desc { color: var(--ink-soft); font-style: italic; }
+
+    /* ---- Footer ---- */
+    footer {
+      padding: 48px 0 40px;
+      margin-top: auto;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    footer .contact { margin-bottom: 14px; }
+    footer a { color: var(--ink-muted); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+    footer a:hover { color: var(--ink); }
+    .legal { line-height: 1.6; max-width: 64ch; }
+
+    @media (max-width: 560px) {
+      header { padding-top: 12vh; }
+      .brand-row { flex-direction: column; gap: 6px; }
+      .brand-desc { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="monogram">F</div>
+      <h1>Florin Management</h1>
+      <p class="lede">
+        A privately held company that builds and operates a focused portfolio
+        of strategic brands. <!-- TODO: replace with your one-line description -->
+      </p>
+    </header>
+
+    <section class="brands">
+      <p class="eyebrow">Our Brands</p>
+
+      <a class="brand-row" href="https://summitstrategic.co" target="_blank" rel="noopener">
+        <span class="brand-name">Summit Strategic</span>
+        <span class="brand-desc">Equity Duplication&trade; strategy for long-horizon capital&nbsp;<span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a class="brand-row" href="https://winedarkpictures.com" target="_blank" rel="noopener">
+        <span class="brand-name">Wine Dark Pictures</span>
+        <span class="brand-desc">One-line description to come&nbsp;<span class="arrow">&rarr;</span></span>
+      </a>
+
+      <a class="brand-row" href="https://autobossapp.com" target="_blank" rel="noopener">
+        <span class="brand-name">AutoBoss</span>
+        <span class="brand-desc">One-line description to come&nbsp;<span class="arrow">&rarr;</span></span>
+      </a>
+    </section>
+
+    <footer>
+      <p class="contact">
+        General inquiries: <a href="mailto:hello@florinmanagement.com">hello@florinmanagement.com</a>
+      </p>
+      <p class="legal">
+        &copy; <span id="yr">2026</span> Florin Management. All rights reserved.
+        Florin Management is a holding company and does not itself provide
+        financial, investment, or tax advice. Information about individual
+        brands is provided through their respective websites.
+      </p>
+    </footer>
+  </div>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
