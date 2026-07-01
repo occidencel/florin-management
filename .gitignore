@@ -3,3 +3,7 @@ node_modules/
 *.env
 .florin-godaddy.env
 .DS_Store
+
+# Internal house guidance — must NOT be published to the public Pages repo
+CLAUDE.md
+AGENTS.md
