@@ -37,6 +37,20 @@ case "$cmd" in
       "$API/domains/$DOMAIN/records/CNAME/$name" \
       -d "[{\"data\":\"$target\",\"ttl\":600}]"
     ;;
+  github-pages)
+    # apex -> GitHub Pages' 4 anycast IPs; www -> user.github.io
+    ghuser="${2:-occidencel}"
+    echo "== set apex A records =="
+    curl -s -w "\nHTTP %{http_code}\n" -X PUT \
+      -H "$AUTH" -H "Content-Type: application/json" \
+      "$API/domains/$DOMAIN/records/A/@" \
+      -d '[{"data":"185.199.108.153","ttl":600},{"data":"185.199.109.153","ttl":600},{"data":"185.199.110.153","ttl":600},{"data":"185.199.111.153","ttl":600}]'
+    echo "== set www CNAME =="
+    curl -s -w "\nHTTP %{http_code}\n" -X PUT \
+      -H "$AUTH" -H "Content-Type: application/json" \
+      "$API/domains/$DOMAIN/records/CNAME/www" \
+      -d "[{\"data\":\"${ghuser}.github.io\",\"ttl\":600}]"
+    ;;
   *)
     echo "unknown command: $cmd" >&2; exit 1 ;;
 esac
