@@ -11,6 +11,11 @@
   <meta property="og:description" content="EntityMaps software, branding, and services are built, owned, and operated by Florin Management." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://florinmanagement.com" />
+  <meta property="og:image" content="https://florinmanagement.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://florinmanagement.com/assets/og-image.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +30,7 @@
       --panel: #FAFAFA;
       --rule: #E5E5E5;
       --accent: #D4AF37;
+      --hero-ink: #09090B;
       --heading: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
       --body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -56,23 +62,59 @@
       max-width: 720px;
       margin: 0 auto;
       padding: 0 28px;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: min(90vh, 860px);
+      background: var(--hero-ink);
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 62% 30%;
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(9, 9, 11, 0.88) 0%,
+        rgba(9, 9, 11, 0.46) 36%,
+        rgba(9, 9, 11, 0.10) 62%,
+        rgba(9, 9, 11, 0.32) 100%
+      );
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 1;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
-    /* ---- Masthead ---- */
     .masthead {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 36px 0;
+      padding: 32px 0;
+      color: #FFFFFF;
     }
 
     .monogram {
       width: 40px;
       height: 40px;
-      border: 1.5px solid var(--ink);
+      border: 1.5px solid currentColor;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -90,32 +132,32 @@
       letter-spacing: 0.02em;
     }
 
-    /* ---- Hero ---- */
-    .hero { padding: 10vh 0 72px; }
+    .hero-content {
+      margin-top: auto;
+      padding-bottom: clamp(48px, 9vh, 88px);
+      color: #FFFFFF;
+    }
 
-    .hero h1 {
+    .hero-content h1 {
       font-family: var(--heading);
       font-weight: 600;
       font-size: clamp(34px, 6.5vw, 54px);
       letter-spacing: -0.015em;
       line-height: 1.12;
       max-width: 16ch;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      text-shadow: 0 1px 24px rgba(0, 0, 0, 0.35);
     }
-
-    .hero h1 .product { white-space: nowrap; }
 
     .lede {
       font-size: 19px;
-      color: var(--ink-muted);
+      color: rgba(255, 255, 255, 0.88);
       max-width: 54ch;
+      text-shadow: 0 1px 16px rgba(0, 0, 0, 0.35);
     }
 
     /* ---- Product ---- */
-    .product-section {
-      border-top: 1px solid var(--rule);
-      padding: 48px 0 64px;
-    }
+    .product-section { padding: 64px 0 72px; }
 
     .eyebrow {
       font-family: var(--heading);
@@ -194,26 +236,46 @@
     }
 
     @media (max-width: 560px) {
-      .hero { padding-top: 7vh; }
+      .hero { min-height: 78vh; }
+      .hero-img { object-position: 58% 30%; }
+      .masthead { padding: 24px 0; }
       .product-card { padding: 26px 22px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="masthead">
-      <div class="monogram" aria-hidden="true">F</div>
-      <span class="wordmark">Florin Management</span>
-    </header>
+  <header class="hero">
+    <picture>
+      <source
+        type="image/webp"
+        srcset="assets/hero-800.webp 800w, assets/hero-1200.webp 1200w, assets/hero-1672.webp 1672w"
+        sizes="100vw" />
+      <img
+        class="hero-img"
+        src="assets/hero-1672.jpg"
+        alt="A presenter walks a boardroom of financial advisors through a client entity structure on a large screen running EntityMaps."
+        width="1672" height="941"
+        fetchpriority="high" />
+    </picture>
+    <div class="hero-scrim" aria-hidden="true"></div>
 
-    <section class="hero">
-      <h1>The technology company behind <span class="product">EntityMaps</span></h1>
-      <p class="lede">
-        Florin Management is a privately held technology company.
-        We build, own, and operate the EntityMaps software and brand.
-      </p>
-    </section>
+    <div class="wrap">
+      <div class="masthead">
+        <div class="monogram" aria-hidden="true">F</div>
+        <span class="wordmark">Florin Management</span>
+      </div>
 
+      <div class="hero-content">
+        <h1>The technology company behind EntityMaps</h1>
+        <p class="lede">
+          Florin Management is a privately held technology company.
+          We build, own, and operate the EntityMaps software and brand.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
     <section class="product-section" aria-labelledby="product-heading">
       <p class="eyebrow">Our Software</p>
       <div class="product-card">
@@ -231,8 +293,10 @@
         <a class="product-link" href="https://entitymaps.com" target="_blank" rel="noopener">Visit entitymaps.com &rarr;</a>
       </div>
     </section>
+  </main>
 
-    <footer>
+  <footer>
+    <div class="wrap">
       <p class="contact">
         General inquiries: <a href="mailto:hello@florinmanagement.com">hello@florinmanagement.com</a>
       </p>
@@ -241,8 +305,8 @@
         EntityMaps and the EntityMaps brand are trademarks of
         Florin Management.
       </p>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>

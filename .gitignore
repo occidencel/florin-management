@@ -7,3 +7,6 @@ node_modules/
 # Internal house guidance — must NOT be published to the public Pages repo
 CLAUDE.md
 AGENTS.md
+
+# Source asset for assets/hero-* (too large to publish)
+EntityMaps.comHero.png
