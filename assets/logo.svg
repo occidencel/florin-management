@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g fill="none" stroke="#B0813E" stroke-width="4.5">
+    <circle cx="50" cy="50" r="45"/>
+    <!-- outer F: stem + top bar running to the rim, upper-right -->
+    <path d="M41 79 V 26 H 81"/>
+    <!-- inner F -->
+    <path d="M53 68 V 38 H 72 M53 52 H 67"/>
+    <!-- stepped detail, lower left -->
+    <path d="M41 56 H 31 V 66 H 21"/>
+  </g>
+</svg>
