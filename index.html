@@ -1,314 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Florin Management — The technology company behind EntityMaps</title>
-  <meta name="description" content="Florin Management is the technology company behind EntityMaps. EntityMaps software, branding, and services are built, owned, and operated by Florin Management." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Florin Management — The technology company behind EntityMaps" />
-  <meta property="og:description" content="EntityMaps software, branding, and services are built, owned, and operated by Florin Management." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://florinmanagement.com" />
-  <meta property="og:image" content="https://florinmanagement.com/assets/og-image-v2.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://florinmanagement.com/assets/og-image-v2.jpg" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --ink: #171717;
-      --ink-muted: #525252;
-      --ink-soft: #737373;
-      --canvas: #FFFFFF;
-      --panel: #FAFAFA;
-      --rule: #E5E5E5;
-      --accent: #D4AF37;
-      --hero-ink: #09090B;
-      --heading: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
-      --body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-
-    body {
-      background: var(--canvas);
-      color: var(--ink);
-      font-family: var(--body);
-      font-size: 17px;
-      line-height: 1.65;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    a { color: inherit; cursor: pointer; }
-    a:focus-visible {
-      outline: 2px solid var(--ink);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 28px;
-    }
-
-    /* ---- Hero ---- */
-    .hero {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-height: min(90vh, 860px);
-      background: var(--hero-ink);
-      overflow: hidden;
-    }
-
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 62% 30%;
-    }
-
-    .hero-scrim {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(9, 9, 11, 0.88) 0%,
-        rgba(9, 9, 11, 0.46) 36%,
-        rgba(9, 9, 11, 0.10) 62%,
-        rgba(9, 9, 11, 0.50) 100%
-      );
-    }
-
-    .hero .wrap {
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .masthead {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 32px 0;
-      color: #FFFFFF;
-      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
-    }
-
-    .monogram {
-      width: 40px;
-      height: 40px;
-      border: 1.5px solid currentColor;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--heading);
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    .wordmark {
-      font-family: var(--heading);
-      font-weight: 500;
-      font-size: 16px;
-      letter-spacing: 0.02em;
-    }
-
-    .hero-content {
-      margin-top: auto;
-      padding-bottom: clamp(48px, 9vh, 88px);
-      color: #FFFFFF;
-    }
-
-    .hero-content h1 {
-      font-family: var(--heading);
-      font-weight: 600;
-      font-size: clamp(34px, 6.5vw, 54px);
-      letter-spacing: -0.015em;
-      line-height: 1.12;
-      max-width: 16ch;
-      margin-bottom: 20px;
-      text-shadow: 0 1px 24px rgba(0, 0, 0, 0.35);
-    }
-
-    .lede {
-      font-size: 19px;
-      color: rgba(255, 255, 255, 0.88);
-      max-width: 54ch;
-      text-shadow: 0 1px 16px rgba(0, 0, 0, 0.35);
-    }
-
-    /* ---- Product ---- */
-    .product-section { padding: 64px 0 72px; }
-
-    .eyebrow {
-      font-family: var(--heading);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    .product-card {
-      background: var(--panel);
-      border: 1px solid var(--rule);
-      padding: 36px;
-    }
-
-    .product-card h2 {
-      font-family: var(--heading);
-      font-weight: 600;
-      font-size: 28px;
-      letter-spacing: -0.01em;
-      margin-bottom: 14px;
-    }
-
-    .product-card p {
-      color: var(--ink-muted);
-      max-width: 56ch;
-    }
-
-    .product-card p + p { margin-top: 14px; }
-
-    .product-link {
-      display: inline-block;
-      margin-top: 26px;
-      font-family: var(--heading);
-      font-weight: 500;
-      font-size: 15px;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 2px;
-      transition: color 200ms ease, border-color 200ms ease;
-    }
-    .product-link:hover { color: var(--ink-soft); }
-
-    /* ---- Footer ---- */
-    footer {
-      margin-top: auto;
-      border-top: 1px solid var(--rule);
-      padding: 40px 0 44px;
-      font-size: 14px;
-      color: var(--ink-soft);
-    }
-    footer .contact { margin-bottom: 14px; }
-    footer a {
-      color: var(--ink-muted);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      transition: color 200ms ease, border-color 200ms ease;
-    }
-    footer a:hover { color: var(--ink); border-color: var(--ink); }
-    .legal { line-height: 1.7; max-width: 64ch; }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
-    }
-
-    @media (max-width: 560px) {
-      .hero { min-height: 78vh; }
-      .hero-img { object-position: 58% 30%; }
-      .masthead { padding: 24px 0; }
-      .product-card { padding: 26px 22px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florin Management — Real Estate Development Advisory</title>
+<meta name="description" content="Strategic consulting and operational advisory for builders, developers, and real estate investors. Development planning, project oversight, and business management for single-family and small multifamily projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="hero">
-    <picture>
-      <source
-        type="image/webp"
-        srcset="assets/hero-v2-800.webp 800w, assets/hero-v2-1200.webp 1200w, assets/hero-v2-1672.webp 1672w"
-        sizes="100vw" />
-      <img
-        class="hero-img"
-        src="assets/hero-v2-1672.jpg"
-        alt="A presenter walks a boardroom of financial advisors through a client entity structure on a large screen running EntityMaps."
-        width="1672" height="941"
-        fetchpriority="high" />
-    </picture>
-    <div class="hero-scrim" aria-hidden="true"></div>
 
-    <div class="wrap">
-      <div class="masthead">
-        <div class="monogram" aria-hidden="true">F</div>
-        <span class="wordmark">Florin Management</span>
+<nav class="nav">
+  <div class="nav-pill">
+    <a class="nav-logo" href="index.html"><span class="coin"></span>Florin Management</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="strategies.html">Strategies</a>
+      <a href="about.html">About</a>
+    </div>
+    <a class="nav-cta" href="contact.html">Start a Project <span class="arr">→</span></a>
+  </div>
+</nav>
+<button class="burger" aria-label="Menu"><span></span><span></span></button>
+<div class="mobile-menu">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="strategies.html">Strategies</a>
+  <a href="about.html">About</a><a href="contact.html">Contact</a>
+</div>
+
+<header class="hero">
+  <div class="hero-art" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow rv">Real Estate Development Advisory · Los Angeles</span>
+    <h1 class="rv d1" style="margin:28px 0 24px;max-width:15ch">Build smarter. <span class="gold">Execute better.</span></h1>
+    <p class="lede rv d2">Florin Management provides strategic consulting and operational advisory to builders, developers, and investors — turning single-family and small multifamily projects into disciplined, well-run developments.</p>
+    <div class="rv d3" style="display:flex;gap:14px;margin-top:40px;flex-wrap:wrap">
+      <a class="btn btn-dark" href="contact.html">Book a Consultation <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="services.html">Our Services <span class="arr">→</span></a>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="bento">
+      <div class="shell b4 rv"><div class="core" style="text-align:left">
+        <div class="stat">1–16</div><div class="stat-label">Units — single-family through small multifamily</div>
+      </div></div>
+      <div class="shell b4 rv d1"><div class="core">
+        <div class="stat">3</div><div class="stat-label">Strategies served — fix &amp; flip, new construction, buy &amp; hold</div>
+      </div></div>
+      <div class="shell b4 rv d2"><div class="core">
+        <div class="stat">End-to-end</div><div class="stat-label">From feasibility and entitlement to stabilized operations</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">What we do</span>
+    <h2 class="rv d1" style="margin:22px 0 56px;max-width:20ch">Advisory that carries a project from plan to performance.</h2>
+    <div class="bento">
+      <div class="shell b8 rv"><div class="core">
+        <div class="num">01</div>
+        <h3 style="margin:14px 0 10px">Development Planning</h3>
+        <p style="color:var(--ink-soft)">Feasibility, budgeting, entitlement strategy, and scope definition — a clear roadmap before the first dollar of hard cost is committed.</p>
+        <ul class="card-list">
+          <li>Site &amp; deal feasibility analysis</li>
+          <li>Development budgets and pro formas</li>
+          <li>Entitlement &amp; permitting strategy with our architectural partner</li>
+        </ul>
+        <a class="btn btn-ghost" style="margin-top:26px" href="services.html#planning">Learn more <span class="arr">→</span></a>
+      </div></div>
+      <div class="shell shell-dark b4 rv d1"><div class="core core-dark">
+        <div class="num">02</div>
+        <h3 style="margin:14px 0 10px">Project Oversight</h3>
+        <p class="mute-on-dark">Schedules, budgets, contractors, and draw management — an owner's representative watching every moving part.</p>
+        <a class="btn btn-ghost" style="margin-top:26px;border-color:rgba(250,248,243,.25);color:var(--cream)" href="services.html#oversight">Learn more <span class="arr" style="background:rgba(255,255,255,.12)">→</span></a>
+      </div></div>
+      <div class="shell b4 rv"><div class="core">
+        <div class="num">03</div>
+        <h3 style="margin:14px 0 10px">Business Management</h3>
+        <p style="color:var(--ink-soft)">Operational guidance for the business behind the buildings — entity structure, systems, and portfolio strategy.</p>
+        <a class="btn btn-ghost" style="margin-top:26px" href="services.html#management">Learn more <span class="arr">→</span></a>
+      </div></div>
+      <div class="shell b8 rv d1"><div class="core split" style="padding:24px">
+        <div style="display:flex;flex-direction:column;justify-content:center;padding:16px">
+          <h3 style="margin-bottom:10px">A partner network built in.</h3>
+          <p style="color:var(--ink-soft);max-width:52ch">Every engagement is backed by our architectural partner and attorney partners — design, entitlement, and legal counsel coordinated under one advisory relationship.</p>
+          <a class="btn btn-dark" style="margin-top:26px;align-self:flex-start" href="about.html">Meet the team <span class="arr">→</span></a>
+        </div>
+        <div class="media-shell"><img src="assets/planning.jpg" alt="Architectural site plans, brass scale ruler, and blueprint rolls on a drafting table"></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;padding-bottom:0">
+  <div class="wrap">
+    <div class="shell rv media-shell" style="display:block">
+      <img src="assets/hold.jpg" alt="Aerial view of small multifamily buildings in the San Fernando Valley at dusk" style="max-height:440px">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">Who we serve</span>
+    <h2 class="rv d1" style="margin:22px 0 56px;max-width:22ch">Three strategies. One disciplined process.</h2>
+    <div class="bento">
+      <div class="shell b4 rv"><div class="core">
+        <h3>Fix &amp; Flip</h3>
+        <p style="color:var(--ink-soft);margin-top:10px">Scope discipline, contractor accountability, and timeline control that protect your margin from acquisition to resale.</p>
+        <a class="btn btn-ghost" style="margin-top:24px" href="strategies.html#flip">Explore <span class="arr">→</span></a>
+      </div></div>
+      <div class="shell b4 rv d1"><div class="core">
+        <h3>New Construction</h3>
+        <p style="color:var(--ink-soft);margin-top:10px">Ground-up single-family and small multifamily — from entitlement through certificate of occupancy.</p>
+        <a class="btn btn-ghost" style="margin-top:24px" href="strategies.html#construction">Explore <span class="arr">→</span></a>
+      </div></div>
+      <div class="shell b4 rv d2"><div class="core">
+        <h3>Buy &amp; Hold</h3>
+        <p style="color:var(--ink-soft);margin-top:10px">Value-add repositioning and operational setup for long-term rental performance.</p>
+        <a class="btn btn-ghost" style="margin-top:24px" href="strategies.html#hold">Explore <span class="arr">→</span></a>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shell shell-dark rv"><div class="core core-dark" style="padding:64px 40px;text-align:center">
+      <h2 style="max-width:18ch;margin:0 auto 18px">Have a project on the table?</h2>
+      <p class="mute-on-dark" style="max-width:50ch;margin:0 auto 34px">Tell us about the deal. We'll tell you honestly whether — and how — it pencils.</p>
+      <a class="btn" style="background:var(--bronze);color:#fff;margin:0 auto;display:inline-flex" href="contact.html">Book a Consultation <span class="arr" style="background:rgba(255,255,255,.22)">→</span></a>
+    </div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="nav-logo" style="color:var(--cream);font-size:18px" href="index.html"><span class="coin"></span>Florin Management</a>
+        <p style="margin-top:16px;max-width:34ch">Strategic consulting and operational advisory for real estate developments.</p>
       </div>
-
-      <div class="hero-content">
-        <h1>The technology company behind EntityMaps</h1>
-        <p class="lede">
-          Florin Management is a privately held technology company.
-          We build, own, and operate the EntityMaps software and brand.
-        </p>
+      <div>
+        <h4>Company</h4>
+        <a class="flink" href="services.html">Services</a>
+        <a class="flink" href="strategies.html">Strategies</a>
+        <a class="flink" href="about.html">About</a>
+        <a class="flink" href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a class="flink" href="mailto:hello@florinmanagement.com">hello@florinmanagement.com</a>
+        <p style="margin-top:8px">15105 Sylvan St<br>Van Nuys, CA 91411</p>
       </div>
     </div>
-  </header>
-
-  <main class="wrap">
-    <section class="product-section" aria-labelledby="product-heading">
-      <p class="eyebrow">Our Software</p>
-      <div class="product-card">
-        <h2 id="product-heading">EntityMaps</h2>
-        <p>
-          EntityMaps is the financial diagramming tool for CPAs, estate
-          attorneys, and family offices modeling complex client structures
-          &mdash; map every entity, every flow, on one canvas.
-        </p>
-        <p>
-          EntityMaps is developed and maintained by Florin Management.
-          All EntityMaps software, branding, and related services are
-          owned and operated by Florin Management.
-        </p>
-        <a class="product-link" href="https://entitymaps.com" target="_blank" rel="noopener">Visit entitymaps.com &rarr;</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <p class="contact">
-        General inquiries: <a href="mailto:hello@florinmanagement.com">hello@florinmanagement.com</a>
-      </p>
-      <p class="legal">
-        &copy; <span id="yr">2026</span> Florin Management. All rights reserved.
-        EntityMaps and the EntityMaps brand are trademarks of
-        Florin Management.
-      </p>
+    <div class="foot-bottom">
+      <span>© 2026 Florin Management. All rights reserved.</span>
+      <a class="badge-ab" href="https://www.autobossapp.com" target="_blank" rel="noopener">⚡ Built by AutoBoss — want a site like this?</a>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="main.js"></script>
 </body>
 </html>
